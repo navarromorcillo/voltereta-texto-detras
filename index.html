@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Texto detrás · Voltereta</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Texto detrás</h1>
+    <p class="lead">Sube una foto, escribe el texto y descarga la imagen lista para stories y reels. Todo se hace en tu navegador, las fotos no se suben a ningún sitio.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept="image/*" multiple hidden>
+        <span class="drop-title">Arrastra fotos aquí o haz clic para elegirlas</span>
+        <span class="drop-hint">Mejor en vertical. Puedes subir varias a la vez.</span>
+      </label>
+
+      <div class="thumbs" id="thumbs" hidden></div>
+
+      <div class="field">
+        <label for="small">Línea pequeña</label>
+        <input type="text" id="small" placeholder="Probamos el">
+      </div>
+      <div class="field">
+        <label for="big">Línea grande</label>
+        <input type="text" id="big" placeholder="Menú Bento">
+      </div>
+
+      <div class="field range">
+        <label for="y">Posición vertical</label>
+        <input type="range" id="y" min="0.08" max="0.92" step="0.005">
+      </div>
+      <div class="field range">
+        <label for="bigSize">Tamaño del texto grande</label>
+        <input type="range" id="bigSize" min="0.08" max="0.3" step="0.005">
+      </div>
+      <div class="field range">
+        <label for="smallSize">Tamaño del texto pequeño</label>
+        <input type="range" id="smallSize" min="0.04" max="0.14" step="0.0025">
+      </div>
+      <div class="field range">
+        <label for="glow">Glow</label>
+        <input type="range" id="glow" min="0" max="0.08" step="0.0025">
+      </div>
+      <div class="field range">
+        <label for="glowOpacity">Intensidad del glow</label>
+        <input type="range" id="glowOpacity" min="0" max="1" step="0.05">
+      </div>
+      <div class="field range">
+        <label for="darken">Oscurecer el fondo</label>
+        <input type="range" id="darken" min="0" max="0.5" step="0.01">
+      </div>
+
+      <div class="field row">
+        <label class="check"><input type="checkbox" id="cutout"> Texto detrás de la persona</label>
+        <label class="color">Color <input type="color" id="color"></label>
+      </div>
+
+      <div class="actions">
+        <select id="format" aria-label="Formato">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+        </select>
+        <button class="btn" id="download" disabled>Descargar</button>
+        <button class="btn ghost" id="downloadAll" disabled hidden>Descargar todas</button>
+      </div>
+
+      <p class="status" id="status"></p>
+    </section>
+
+    <section class="preview-wrap">
+      <canvas id="preview" class="preview" width="0" height="0"></canvas>
+      <p class="empty" id="empty">La vista previa aparecerá aquí.</p>
+    </section>
+  </main>
+
+  <script src="compose.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
